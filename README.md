@@ -1,2 +1,2 @@
 # furniture-factory
-Java Furniture Factory (Real Interview Question)
+Java - Furniture Factory (Real Interview Question)
