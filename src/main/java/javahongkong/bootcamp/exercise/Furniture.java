@@ -1,4 +1,4 @@
-package hackerrank;
+package com.javahongkong.bootcamp.exercise;
 
 /**
  * FURNITURE_TYPE("Furniture Name", floating-point cost)
@@ -16,7 +16,10 @@ public enum Furniture {
 	 * @param label The plain text name of the furniture
 	 * @param cost  The furniture's cost
 	 */
-	// TODO: Create a constructor
+	private Furniture(String label, float cost) {
+    this.label = label;
+    this.cost = cost;
+  }
 
 	/**
 	 * @return The plain text name of the furniture

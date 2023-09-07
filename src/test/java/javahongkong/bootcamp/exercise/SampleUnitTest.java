@@ -1,4 +1,4 @@
-package hackerrank;
+package com.javahongkong.bootcamp.exercise;
 
 import static junit.framework.TestCase.assertEquals;
 import org.junit.BeforeClass;
