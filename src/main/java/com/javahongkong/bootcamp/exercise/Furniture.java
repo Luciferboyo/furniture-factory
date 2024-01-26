@@ -26,7 +26,7 @@ public enum Furniture {
 	 */
 	public String label() {
     // TODO: Complete the method
-		return null;
+		return this.label;
 	}
 
 	/**
@@ -34,6 +34,6 @@ public enum Furniture {
 	 */
 	public float cost() {
     // TODO: Complete the method
-		return -1.0f;
+		return this.cost;
 	}
 }

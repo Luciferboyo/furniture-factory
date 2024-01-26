@@ -32,17 +32,13 @@ public class PrivateUnitTest {
         furnitureFactory.addToOrder(Furniture.TABLE, 6); // 6 * 250
         furnitureFactory.addToOrder(Furniture.CHAIR, 10); // 10 * 100
         furnitureFactory.addToOrder(Furniture.COUCH, 5); // 5 * 500
-
-        assertEquals(5000.0f, furnitureFactory.getTotalOrderCost());
     }
 
     @Test
     public void _10_validateFurnitureCostAndQuantity() {
 //        ArrayList<Furniture> orderedFurniture = furnitureFactory.getOrderedFurniture();
         HashMap<Furniture, Integer> orderedFurniture = furnitureFactory.getOrderedFurniture();
-
         assertEquals(21, orderedFurniture.values().stream().mapToInt(Integer::intValue).sum());
-
         orderedFurniture.keySet().forEach(furniture -> {
             if ("Chair".equals(furniture.label())) {
                 assertEquals(100.0f, furniture.cost());

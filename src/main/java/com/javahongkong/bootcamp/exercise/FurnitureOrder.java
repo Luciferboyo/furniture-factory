@@ -1,6 +1,7 @@
 package com.javahongkong.bootcamp.exercise;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class FurnitureOrder implements FurnitureOrderInterface {
     /**
@@ -13,34 +14,59 @@ public class FurnitureOrder implements FurnitureOrderInterface {
      */
     FurnitureOrder() {
         // TODO: Complete the constructor
+        this.ordersOfFurnitures = new HashMap<>();
     }
 
     public void addToOrder(final Furniture type, final int furnitureCount) {
         // TODO: Complete the method
+        if(furnitureCount < 1){
+            return;
+        }
+        if (this.ordersOfFurnitures.containsKey(type)) {
+            int exisCount = ordersOfFurnitures.get(type);
+            this.ordersOfFurnitures.put(type,exisCount+furnitureCount);
+        }else{
+            this.ordersOfFurnitures.put(type, furnitureCount);
+        }
+        System.out.println(this.ordersOfFurnitures.size());
     }
 
     public HashMap<Furniture, Integer> getOrderedFurniture() {
         // TODO: Complete the method
-        return null;
+        return this.ordersOfFurnitures;
     }
 
     public float getTotalOrderCost() {
         // TODO: Complete the method
-        return -1.0f;
+        float cost = 0.0f;
+        for(Map.Entry<Furniture, Integer> entry : this.ordersOfFurnitures.entrySet()){
+            cost += entry.getKey().cost() * entry.getValue();
+        }
+        return cost;
     }
 
     public int getTypeCount(Furniture type) {
         // TODO: Complete the method
-        return -1;
+        if (!this.ordersOfFurnitures.containsKey(type)) {
+            return 0;
+        }
+        return this.ordersOfFurnitures.get(type);
     }
 
     public float getTypeCost(Furniture type) {
         // TODO: Complete the method
-        return -1.0f;
+        if (!this.ordersOfFurnitures.containsKey(type)) {
+            return 0.0f;
+        }
+        return this.ordersOfFurnitures.get(type) * type.cost();
     }
 
     public int getTotalOrderQuantity() {
         // TODO: Complete the method
-        return -1;
+        int sum = 0;
+        for(Map.Entry<Furniture, Integer> entry : this.ordersOfFurnitures.entrySet()){
+            sum += entry.getValue();
+        }
+        return sum;
     }
 }
